@@ -96,6 +96,7 @@ function initData(screenWidth, screenHeight) {
 				if (this.validateNewPos(shape.getLocations()) == false) {
 					console.log('INVALID')
 					shape.updateSx(1)
+					this.addToData(shape);
 					return false
 				} 
 				this.addToData(shape);
@@ -108,6 +109,7 @@ function initData(screenWidth, screenHeight) {
 				if (this.validateNewPos(shape.getLocations()) == false) {
 					console.log('INVALID')
 					shape.updateSx(-1)
+					this.addToData(shape);
 					return false
 				} 
 				this.addToData(shape);
@@ -120,6 +122,7 @@ function initData(screenWidth, screenHeight) {
 				if (this.validateNewPos(shape.getLocations()) == false) {
 					console.log('INVALID')
 					shape.updateSy(-1)
+					this.addToData(shape);
 					return false;
 				} 
 				this.addToData(shape);
