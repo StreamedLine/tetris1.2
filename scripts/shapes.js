@@ -20,12 +20,13 @@ function initShapes() {
 	}
 
 
-	var shapeNames = ['line', 'cube', 'plus', 'hook'],
+	var shapeNames = ['line', 'cube', 'plus', 'right_hook', 'left_hook'],
 		shapeColors = {
 			line: 'red',
 			plus: 'blue',
 			cube: 'green',
-			hook: 'magenta'
+			right_hook: 'magenta',
+			left_hook: 'darkorange'
 		};
 
 	var shapeMap = {
@@ -58,10 +59,10 @@ function initShapes() {
 		//1 ###
 		//2
 		plus: [
-			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: false,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true}, {x: 0, y: 2, down: true, left: true, right: true}],
 			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: false,  right: true},  {x: 0, y: 2, down: true, left: true,  right: true}, {x: -1, y: 1, down: true, left: true,  right: false}],
 			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true}, {x: 0, y: 0, down: false,  left: true, right: true}],
-			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: true,  right: false},  {x: 0, y: 2, down: true, left: true,  right: true},  {x: 1, y: 1, down: true, left: false,  right: true}]
+			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: true,  right: false},  {x: 0, y: 2, down: true, left: true,  right: true},  {x: 1, y: 1, down: true, left: false,  right: true}],
+			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: false,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true}, {x: 0, y: 2, down: true, left: true, right: true}],
 		],
 		// 21012
 		//0  ##
@@ -71,12 +72,26 @@ function initShapes() {
 		//0  
 		//1 ###
 		//2   #
-		hook: [
-			[{x: 0,  y: 0, down: false, left: true, right: false},  {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: true}, {x: 1,  y: 0, down: true, left: false, right: true},],
+		right_hook: [
+			[{x: 0,  y: 0, down: false, left: true, right: false}, {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: true},  {x: 1,  y: 0, down: true, left: false, right: true}],
 			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: false, left: false, right: true}, {x: 1, y: 2, down: true, left: true, right: true}],
 			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: false,  right: true}, {x: -1, y: 2, down: true, left: true, right: false}],
-			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true}, {x: -1, y: 0, down: false,  left: true, right: false}]
+			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true},  {x: -1, y: 0, down: false,  left: true, right: false}]
 		],
+		// 21012
+		//0 ##
+		//1  #
+		//2  #
+		// 21012
+		//0   #
+		//1 ###
+		//2   
+		left_hook: [
+			[{x: 0,  y: 0, down: false, left: false, right: true}, {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: true},  {x: -1,  y: 0, down: true, left: true, right: false}],
+			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true}, {x: 1, y: 0, down: false, left: true, right: true}],
+			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: false}, {x: 1, y: 2, down: true, left: false, right: true}],
+			[{x: -1, y: 1, down: false,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: true, right: false},  {x: -1, y: 2, down: true,  left: true, right: true}]
+		]
 	};
 
 	return function create() {

@@ -21,6 +21,7 @@ var game = {
 	data: null,
 	engine: null,
 	init: function init() {
+		this.gameOver = false;
 		this.data = initData()
 		this.engine = initEngine(this);
 		this.data.shapes.addShape();

@@ -146,6 +146,7 @@ function initData(screenWidth, screenHeight) {
 				if (this.validateNewPos(shape.getLocations()) == false) {
 					console.log('INVALID')
 					while (shape.orientation != orig_orientation) {shape.reorient() }
+					this.addToData(shape);
 					return false;
 				} 
 				this.addToData(shape);
