@@ -19,42 +19,55 @@ var game = {
 		screenTag.innerHTML = final;
 		score.innerText = this.score;
 	},
+
 	data: null,
+	
 	engine: null,
+	
 	init: function init() {
 		clearTimeout(this.timeoutLoop);
+		this.score = 0;
 		this.domReset();
-		this.gameOver = false;
 		this.data = initData()
 		this.engine = initEngine(this);
 		this.data.shapes.addShape();
 	},
+	
 	refreshRate: 400,
+	
 	go: function go() {
 		this.init();
 		var theGame = this;
 		function gameLoop() {
-			theGame.engine();
-			if (!theGame.gameOver) {
+			if (theGame.engine() == true) { //implicit function call
 				theGame.timeoutLoop = setTimeout(gameLoop, theGame.refreshRate);
 			}
 		}
 		gameLoop();
 	},
-	gameOver: false,
+	
 	score: 0,
+	
 	spacebar: function() {
 		this.data.shapes.reorient();
 		this.ui();
 	},
+	
 	arrow: function(k) {
 		this.data.shapes.move(k);
 		this.ui();
 	},
+	
 	domReset: function() {
-		//ideally add and remove classes
-		screenTag.style.borderColor = '#555';
-		scoreTag.style.fontSize = '1.25em';
+		document.body.appendChild(scoreTag)
+		screenTag.classList.remove('redBorder');
+		scoreTag.classList.remove('largerFont');
+	},
+
+	gameOver: function() {
+		screenTag.parentNode.insertBefore(scoreTag, document.getElementsByClassName('gobtn')[0]);
+		screenTag.classList.add('redBorder');
+		scoreTag.classList.add('largerFont');
 	}
 };
 

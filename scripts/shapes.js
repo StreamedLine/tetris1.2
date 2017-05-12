@@ -20,13 +20,15 @@ function initShapes() {
 	}
 
 
-	var shapeNames = ['line', 'cube', 'plus', 'right_hook', 'left_hook'],
+	var shapeNames = ['line', 'cube', 'plus', 'right_hook', 'left_hook', 'right_squig', 'left_squig'],
 		shapeColors = {
 			line: 'red',
 			plus: 'blue',
 			cube: 'green',
 			right_hook: 'magenta',
-			left_hook: 'darkorange'
+			left_hook: 'darkorange',
+			right_squig: 'brown',
+			left_squig: 'mediumorchid'
 		};
 
 	var shapeMap = {
@@ -87,11 +89,36 @@ function initShapes() {
 		//1 ###
 		//2   
 		left_hook: [
-			[{x: 0,  y: 0, down: false, left: false, right: true}, {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: true},  {x: -1,  y: 0, down: true, left: true, right: false}],
-			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true}, {x: 1, y: 0, down: false, left: true, right: true}],
-			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: false}, {x: 1, y: 2, down: true, left: false, right: true}],
+			[{x: 0,  y: 0, down: false, left: false, right: true},  {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: true},  {x: -1,  y: 0, down: true, left: true, right: false}],
+			[{x: -1, y: 1, down: true,  left: true, right: false},  {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true}, {x: 1, y: 0, down: false, left: true, right: true}],
+			[{x: 0,  y: 0, down: false, left: true, right: true},   {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: false}, {x: 1, y: 2, down: true, left: false, right: true}],
 			[{x: -1, y: 1, down: false,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: true, right: false},  {x: -1, y: 2, down: true,  left: true, right: true}]
-		]
+		],
+		// 21012
+		//0  #
+		//1 ##
+		//2 #
+		// 21012
+		//0 ## 
+		//1  ##
+		//2 
+		right_squig: [
+			[{x: 0,  y: 0, down: false, left: true, right: true}, {x: 0,  y: 1, down: true, left: false, right: true}, {x: -1,  y: 1, down: false, left: true, right: false}, {x: -1,  y: 2, down: true, left: true, right: true},],
+			[{x: -1,  y: 0, down: true, left: true, right: false}, {x: 0,  y: 0, down: false, left: false, right: true}, {x: 0,  y: 1, down: true, left: true, right: false}, {x: 1,  y: 1, down: true, left: false, right: true}, ]
+		],
+		// 21012
+		//0 #
+		//1 ##
+		//2  #
+		// 21012
+		//0 ## 
+		//1##
+		//2 
+		left_squig: [
+			[{x: -1,  y: 0, down: false, left: true, right: true}, {x: -1,  y: 1, down: true, left: true, right: false}, {x: 0,  y: 1, down: false, left: false, right: true}, {x: 0,  y: 2, down: true, left: true, right: true},],
+			[{x: -2,  y: 1, down: true, left: true, right: false}, {x: -1,  y: 1, down: true, left: false, right: true}, {x: -1,  y: 0, down: false, left: true, right: false}, {x: 0,  y: 0, down: true, left: false, right: true}, ]
+		],
+
 	};
 
 	return function create() {

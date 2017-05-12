@@ -28,9 +28,6 @@ function initData(screenWidth, screenHeight) {
 		xLines: xLines,
 		w: screenWidth,
 		h: screenHeight,
-		getLoc: function getLoc(loc) {
-			
-		}
 	};
 
 	return {

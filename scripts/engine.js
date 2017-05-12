@@ -2,10 +2,9 @@
 function initEngine(game) {
 
 	function gravity() {
-		if (game.data.shapes.gravity() == false) {//implicit gravity
+		if (game.data.shapes.gravity() == false) { //implicit gravity
 			checkForFullLines();
-			if (game.data.shapes.addAndValidateShape() == false) {//implicit creation and validation of new shape
-				gameOver();
+			if (game.data.shapes.addAndValidateShape() == false) { //implicit creation and validation of new shape
 				return false
 			} else {
 				game.score += 15;
@@ -23,14 +22,18 @@ function initEngine(game) {
 	}
 
 	function gameOver() {
-		game.gameOver = true;
-		screenTag.style.borderColor = 'tomato';
-		scoreTag.style.fontSize = '2em';
+		game.ui();
+		game.gameOver();
 	}
 
 	function advanceFrame() {
-		gravity();
-		game.ui();
+		if (gravity() == false) { //implicit function call
+			gameOver();
+			return false;
+		} else {
+			game.ui();
+			return true;
+		}
 	}
 
 	return advanceFrame
