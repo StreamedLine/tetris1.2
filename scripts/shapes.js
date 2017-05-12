@@ -3,7 +3,7 @@ function initShapes() {
 
 	function Shape(name) {
 		this.color = shapeColors[name];
-		this.sx = 10;
+		this.sx = 8;
 		this.sy = 0;
 		this.updateSx = function updateSx(sx) {this.sx += sx};
 		this.updateSy = function updateSy(sy) {this.sy += sy};

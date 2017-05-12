@@ -16,11 +16,14 @@ var game = {
 				final += str
 			});
 		});
-		screenTag.innerHTML = final
+		screenTag.innerHTML = final;
+		score.innerText = this.score;
 	},
 	data: null,
 	engine: null,
 	init: function init() {
+		clearTimeout(this.timeoutLoop);
+		this.domReset();
 		this.gameOver = false;
 		this.data = initData()
 		this.engine = initEngine(this);
@@ -33,12 +36,13 @@ var game = {
 		function gameLoop() {
 			theGame.engine();
 			if (!theGame.gameOver) {
-				setTimeout(gameLoop, theGame.refreshRate);
+				theGame.timeoutLoop = setTimeout(gameLoop, theGame.refreshRate);
 			}
 		}
 		gameLoop();
 	},
 	gameOver: false,
+	score: 0,
 	spacebar: function() {
 		this.data.shapes.reorient();
 		this.ui();
@@ -46,6 +50,11 @@ var game = {
 	arrow: function(k) {
 		this.data.shapes.move(k);
 		this.ui();
+	},
+	domReset: function() {
+		//ideally add and remove classes
+		screenTag.style.borderColor = '#555';
+		scoreTag.style.fontSize = '1.25em';
 	}
 };
 

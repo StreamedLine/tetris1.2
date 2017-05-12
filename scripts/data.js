@@ -44,16 +44,20 @@ function initData(screenWidth, screenHeight) {
 				return false;
 			},
 			clearFullLines: function(xLines) {
+				var fullCount = 0;
 				for (var i = 0; i < xLines.length; i++) {
 					var full = xLines[i].every(function(pixel){return pixel.chr != ' '})
 					if (full) {
+						fullCount += 1;
 						for (var j = i; j > 0; j--) {
 							xLines[j].forEach(function(pixel, z){
 								pixel.chr = xLines[j-1][z].chr;
+								pixel.color = xLines[j-1][z].color;
 							});
 						}
 					}
 				}
+				return fullCount;
 			}
 		},
 		shapes: {

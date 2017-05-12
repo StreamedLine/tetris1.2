@@ -1,4 +1,6 @@
 var screenTag = document.getElementById('screen');
+var scoreTag = document.getElementById('score');
+
 
 (function(){
 
