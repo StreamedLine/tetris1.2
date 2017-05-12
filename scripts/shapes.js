@@ -23,12 +23,12 @@ function initShapes() {
 	var shapeNames = ['line', 'cube', 'plus', 'right_hook', 'left_hook', 'right_squig', 'left_squig'],
 		shapeColors = {
 			line: 'red',
-			plus: 'blue',
-			cube: 'green',
+			plus: 'cyan',
+			cube: 'lime',
 			right_hook: 'magenta',
-			left_hook: 'darkorange',
-			right_squig: 'brown',
-			left_squig: 'mediumorchid'
+			left_hook: 'orange',
+			right_squig: 'gold',
+			left_squig: 'lightgrey'
 		};
 
 	var shapeMap = {
