@@ -20,15 +20,15 @@ function initShapes() {
 	}
 
 
-	var shapeNames = ['line', 'cube', 'plus', 'right_hook', 'left_hook', 'right_squig', 'left_squig'],
+	var shapeNames = ['line', 'cube', 'plus', 'right_hook', 'left_hook', 'right_zigzag', 'left_zigzag'],
 		shapeColors = {
 			line: 'red',
 			plus: 'cyan',
 			cube: 'lime',
 			right_hook: 'magenta',
 			left_hook: 'orange',
-			right_squig: 'gold',
-			left_squig: 'lightgrey'
+			right_zigzag: 'gold',
+			left_zigzag: 'lightgrey'
 		};
 
 	var shapeMap = {
@@ -40,8 +40,8 @@ function initShapes() {
 		//0
 		//1 ###
 		line: [
-			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: true, left: true,  right: true}],
-			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: true}]
+			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: false, left: true,  right: true}, {x: 0, y: 3, down: true, left: true,  right: true}],
+			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: false}, {x: 2, y: 1, down: true, left: false, right: true}]
 		],
 		// 21012
 		//0 ##
@@ -102,7 +102,7 @@ function initShapes() {
 		//0 ## 
 		//1  ##
 		//2 
-		right_squig: [
+		right_zigzag: [
 			[{x: 0,  y: 0, down: false, left: true, right: true}, {x: 0,  y: 1, down: true, left: false, right: true}, {x: -1,  y: 1, down: false, left: true, right: false}, {x: -1,  y: 2, down: true, left: true, right: true},],
 			[{x: -1,  y: 0, down: true, left: true, right: false}, {x: 0,  y: 0, down: false, left: false, right: true}, {x: 0,  y: 1, down: true, left: true, right: false}, {x: 1,  y: 1, down: true, left: false, right: true}, ]
 		],
@@ -114,7 +114,7 @@ function initShapes() {
 		//0 ## 
 		//1##
 		//2 
-		left_squig: [
+		left_zigzag: [
 			[{x: -1,  y: 0, down: false, left: true, right: true}, {x: -1,  y: 1, down: true, left: true, right: false}, {x: 0,  y: 1, down: false, left: false, right: true}, {x: 0,  y: 2, down: true, left: true, right: true},],
 			[{x: -2,  y: 1, down: true, left: true, right: false}, {x: -1,  y: 1, down: true, left: false, right: true}, {x: -1,  y: 0, down: false, left: true, right: false}, {x: 0,  y: 0, down: true, left: false, right: true}, ]
 		],
