@@ -17,7 +17,7 @@ function initEngine(game) {
 		var full = game.data.lines.checkForFullLines(game.data.screen.xLines);
 		if (full) {
 			var fullCount = game.data.lines.clearFullLines(game.data.screen.xLines);
-			game.score += fullCount * 80;
+			game.score += fullCount ** fullCount;
 		}
 	}
 
