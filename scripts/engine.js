@@ -18,6 +18,7 @@ function initEngine(game) {
 		if (full) {
 			var fullCount = game.data.lines.clearFullLines(game.data.screen.xLines);
 			game.score += fullCount ** fullCount;
+			game.refreshRate -= 10;
 		}
 	}
 

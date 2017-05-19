@@ -27,6 +27,7 @@ var game = {
 	init: function init() {
 		clearTimeout(this.timeoutLoop);
 		this.score = 0;
+		this.refreshRate = 400;
 		this.domReset();
 		this.data = initData()
 		this.engine = initEngine(this);
