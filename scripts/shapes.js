@@ -103,8 +103,8 @@ function initShapes() {
 		//1  ##
 		//2 
 		right_zigzag: [
-			[{x: 0,  y: 0, down: false, left: true, right: true}, {x: 0,  y: 1, down: true, left: false, right: true}, {x: -1,  y: 1, down: false, left: true, right: false}, {x: -1,  y: 2, down: true, left: true, right: true},],
-			[{x: -1,  y: 0, down: true, left: true, right: false}, {x: 0,  y: 0, down: false, left: false, right: true}, {x: 0,  y: 1, down: true, left: true, right: false}, {x: 1,  y: 1, down: true, left: false, right: true}, ]
+			[{x: 1,  y: 0, down: false, left: true, right: true}, {x: 1,  y: 1, down: true, left: false, right: true}, {x: 0,  y: 1, down: false, left: true, right: false}, {x: 0,  y: 2, down: true, left: true, right: true},],
+			[{x: 0,  y: 0, down: true, left: true, right: false}, {x: 1,  y: 0, down: false, left: false, right: true}, {x: 1,  y: 1, down: true, left: true, right: false}, {x: 2,  y: 1, down: true, left: false, right: true}, ]
 		],
 		// 21012
 		//0 #
