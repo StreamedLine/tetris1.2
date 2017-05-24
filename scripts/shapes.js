@@ -3,7 +3,7 @@ function initShapes() {
 
 	function Shape(name) {
 		this.color = shapeColors[name];
-		this.sx = 8;
+		this.sx = 7;
 		this.sy = 0;
 		this.updateSx = function updateSx(sx) {this.sx += sx};
 		this.updateSy = function updateSy(sy) {this.sy += sy};
@@ -16,7 +16,6 @@ function initShapes() {
 				return {x: sy + loc.y, y: sx + loc.x}
 			});
 		}
-		this.showSxSy = function(){console.log(this.sx, this.sy)}
 	}
 
 
@@ -36,9 +35,10 @@ function initShapes() {
 		//0  #
 		//1  #
 		//2  #
+		//3  #
 		// 21012
 		//0
-		//1 ###
+		//1 ####
 		line: [
 			[{x: 0,  y: 0, down: false, left: true, right: true},  {x: 0, y: 1, down: false, left: true,  right: true},  {x: 0, y: 2, down: false, left: true,  right: true}, {x: 0, y: 3, down: true, left: true,  right: true}],
 			[{x: -1, y: 1, down: true,  left: true, right: false}, {x: 0, y: 1, down: true,  left: false, right: false}, {x: 1, y: 1, down: true, left: false, right: false}, {x: 2, y: 1, down: true, left: false, right: true}]

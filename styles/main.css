@@ -7,7 +7,7 @@ body {
 .gobtn {
 	padding: 5px;
 	width: 100px;
-	margin: 20px auto;
+	margin: 35px auto;
 	border: 1px solid black;
 	border-radius: 10px;
 	cursor: pointer;
@@ -19,6 +19,7 @@ body {
 
 #screen {
 	display: inline-block;
+	margin-top: 0;
 	border-width: 4px;
 	border-style: solid;
 	transition: 1s;
@@ -43,4 +44,12 @@ body {
 
 .redBorder {
 	border-color: tomato;
+}
+
+.nextShape {
+	margin: 5px;
+}
+
+.displayNone {
+	display: none;
 }

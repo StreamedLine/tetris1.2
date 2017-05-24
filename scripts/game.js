@@ -1,27 +1,10 @@
-
 var game = {
-	ui: function displayScreen() {
-		final = '';
-		this.data.screen.xLines.forEach(function(line){
-			line.forEach(function(pixel){
-				str = ''
-				if (pixel.color != 'black') {
-					str = "<span style='color:" + pixel.color + "'>" + pixel.chr + '</span>';
-				} else {
-					str = pixel.chr;
-				}
-				if (pixel.x == line.length-1) {
-					str += '<br>'
-				}
-				final += str
-			});
-		});
-		screenTag.innerHTML = final;
-		score.innerText = this.score;
-	},
+	ui: null, //created in scripts/ui.js
 
+	initData: null, //created in scripts/data.js
 	data: null,
 	
+	initEngine: null,
 	engine: null,
 	
 	init: function init() {
@@ -29,9 +12,9 @@ var game = {
 		this.score = 0;
 		this.refreshRate = 400;
 		this.domReset();
-		this.data = initData()
-		this.engine = initEngine(this);
-		this.data.shapes.addShape();
+		this.data = this.initData()
+		this.engine = this.initEngine(this);
+		this.data.shapes.addFirstShape();
 	},
 	
 	refreshRate: 400,
@@ -51,24 +34,26 @@ var game = {
 	
 	spacebar: function() {
 		this.data.shapes.reorient();
-		this.ui();
+		this.ui.refreshScreen();
 	},
 	
 	arrow: function(k) {
 		this.data.shapes.move(k);
-		this.ui();
+		this.ui.refreshScreen();
 	},
 	
 	domReset: function() {
-		document.body.appendChild(scoreTag)
+		document.body.appendChild(scoreTag);
 		screenTag.classList.remove('redBorder');
 		scoreTag.classList.remove('largerFont');
+		nextShapeTag.classList.remove('displayNone');
 	},
 
 	gameOver: function() {
 		screenTag.parentNode.insertBefore(scoreTag, document.getElementsByClassName('gobtn')[0]);
 		screenTag.classList.add('redBorder');
 		scoreTag.classList.add('largerFont');
+		nextShapeTag.classList.add('displayNone');
 	}
 };
 

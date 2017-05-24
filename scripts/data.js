@@ -1,5 +1,6 @@
+(function(){
 
-function initData(screenWidth, screenHeight) {
+game.initData = function initData(screenWidth, screenHeight) {
 
 	function Pixel(x, y, chr, color) {
 		this.x = x;
@@ -59,11 +60,10 @@ function initData(screenWidth, screenHeight) {
 		},
 		shapes: {
 			screen: screen,
-			currentShape: {
-				shapeOb: null,
-			},
+			currentShape: null,
+			nextShape: {shapeOb: null},
 			shapeScreenLocs: function shapeScreenLocs(shape) {
-				var shape = shape || this.currentShape.shapeOb;
+				var shape = shape || this.currentShape;
 
 				var shapeLocs = shape.getLocations(),
 				    screenLocs = [];
@@ -73,7 +73,7 @@ function initData(screenWidth, screenHeight) {
 				return screenLocs
 			},
 			addToData: function addToData(shape) {
-				var shape = shape || this.currentShape.shapeOb,
+				var shape = shape || this.currentShape,
 					pixels = this.shapeScreenLocs(shape);
 
 				pixels.forEach(function(pixel, i){
@@ -82,7 +82,7 @@ function initData(screenWidth, screenHeight) {
 				});
 			},
 			removeFromData: function removeFromData(shape) {
-				var shape = shape || this.currentShape.shapeOb;
+				var shape = shape || this.currentShape;
 					pixels = this.shapeScreenLocs(shape);
 
 				pixels.forEach(function(pixel){
@@ -90,7 +90,7 @@ function initData(screenWidth, screenHeight) {
 				});
 			},
 			moveLeft: function moveLeft(shape) {
-				var shape = shape || this.currentShape.shapeOb;
+				var shape = shape || this.currentShape;
 
 				this.removeFromData(shape);
 				shape.updateSx(-1);
@@ -103,7 +103,7 @@ function initData(screenWidth, screenHeight) {
 				this.addToData(shape);
 			},
 			moveRight: function moveRight(shape) {
-				var shape = shape || this.currentShape.shapeOb;
+				var shape = shape || this.currentShape;
 
 				this.removeFromData(shape);
 				shape.updateSx(1);
@@ -116,7 +116,7 @@ function initData(screenWidth, screenHeight) {
 				this.addToData(shape);
 			},
 			moveDown: function moveDown(shape) {
-				var shape = shape || this.currentShape.shapeOb;
+				var shape = shape || this.currentShape;
 
 				this.removeFromData(shape);
 				shape.updateSy(1);
@@ -129,7 +129,7 @@ function initData(screenWidth, screenHeight) {
 				this.addToData(shape);
 			},
 			gravity: function gravity(shape) {
-				var shape = shape || this.currentShape.shapeOb;
+				var shape = shape || this.currentShape;
 
 				if (this.moveDown() == false) { //NOTE: move happening implicitly
 					this.addToData(shape);
@@ -139,7 +139,7 @@ function initData(screenWidth, screenHeight) {
 				return true
 			},
 			reorient: function reorient(shape) {
-				var shape = shape || this.currentShape.shapeOb,
+				var shape = shape || this.currentShape,
 					orig_orientation = shape.orientation;
 				
 				this.removeFromData(shape);
@@ -166,10 +166,18 @@ function initData(screenWidth, screenHeight) {
 				});
 			},
 			create: initShapes(),
+			addFirstShape: function() {
+				this.nextShape.shapeOb = this.create()
+				this.addShape();
+			},
+			addNextShape: function(shape) {
+				this.nextShape.shapeOb = shape;
+			},
 			addShape: function() {
 				newShape = this.create();
-				this.currentShape.shapeOb = newShape;
-				return newShape
+				this.currentShape = this.nextShape.shapeOb;
+				this.addNextShape(newShape);
+				return this.currentShape
 			},
 			addAndValidateShape: function() {
 				var shape = this.addShape();
@@ -183,3 +191,5 @@ function initData(screenWidth, screenHeight) {
 		}
 	}
 }
+
+}());

@@ -1,5 +1,6 @@
+(function(){
 
-function initEngine(game) {
+game.initEngine = function initEngine(game) {
 
 	function gravity() {
 		if (game.data.shapes.gravity() == false) { //implicit gravity
@@ -23,7 +24,7 @@ function initEngine(game) {
 	}
 
 	function gameOver() {
-		game.ui();
+		game.ui.refreshScreen();
 		game.gameOver();
 	}
 
@@ -32,7 +33,8 @@ function initEngine(game) {
 			gameOver();
 			return false;
 		} else {
-			game.ui();
+			game.ui.refreshScreen();
+			game.ui.refreshNext();
 			return true;
 		}
 	}
@@ -40,3 +42,6 @@ function initEngine(game) {
 	return advanceFrame
 
 }
+
+}());
+
