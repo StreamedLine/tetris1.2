@@ -95,7 +95,6 @@ game.initData = function initData(screenWidth, screenHeight) {
 				this.removeFromData(shape);
 				shape.updateSx(-1);
 				if (this.validateNewPos(shape.getLocations()) == false) {
-					console.log('INVALID')
 					shape.updateSx(1)
 					this.addToData(shape);
 					return false
@@ -108,7 +107,6 @@ game.initData = function initData(screenWidth, screenHeight) {
 				this.removeFromData(shape);
 				shape.updateSx(1);
 				if (this.validateNewPos(shape.getLocations()) == false) {
-					console.log('INVALID')
 					shape.updateSx(-1)
 					this.addToData(shape);
 					return false
@@ -121,7 +119,6 @@ game.initData = function initData(screenWidth, screenHeight) {
 				this.removeFromData(shape);
 				shape.updateSy(1);
 				if (this.validateNewPos(shape.getLocations()) == false) {
-					console.log('INVALID')
 					shape.updateSy(-1)
 					this.addToData(shape);
 					return false;
@@ -145,7 +142,6 @@ game.initData = function initData(screenWidth, screenHeight) {
 				this.removeFromData(shape);
 				shape.reorient();
 				if (this.validateNewPos(shape.getLocations()) == false) {
-					console.log('INVALID')
 					while (shape.orientation != orig_orientation) {shape.reorient() }
 					this.addToData(shape);
 					return false;

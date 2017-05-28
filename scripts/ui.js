@@ -39,7 +39,7 @@ var scoreTag      = document.getElementById('score');
 	    	nextShapeTag.innerText = createStr(game.data.shapes.nextShape.shapeOb.getLocations());
 	    }
 	};
-}())
+}());
 
 
 (function(){
@@ -56,7 +56,7 @@ var scoreTag      = document.getElementById('score');
 			game.arrow(e.keyCode);
 	}
 	function processUserKeypress(e) {
-		if (e.keyCode == 32) {
+		if (e.keyCode == 32 || e.which == 32) { //.which for firefox
 			game.spacebar();
 		}
 	}

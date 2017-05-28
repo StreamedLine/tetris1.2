@@ -4,7 +4,7 @@ var game = {
 	initData: null, //created in scripts/data.js
 	data: null,
 	
-	initEngine: null,
+	initEngine: null, //created in engine.js
 	engine: null,
 	
 	init: function init() {
